@@ -1,5 +1,3 @@
-
-
 let videoWidth, videoHeight;
 
 // se streaming de vídeo da câmera.
@@ -9,9 +7,7 @@ let video = document.getElementById('video');
 let canvasOutput = document.getElementById('canvasOutput');
 let canvasOutputCtx = canvasOutput.getContext('2d');
 let stream = null;
-
-
-
+let segundaLeitura = false;
 
 function startCamera() {
   if (streaming) return;
@@ -51,7 +47,6 @@ let canvasInputCtx = null;
 
 let canvasBuffer = null;
 let canvasBufferCtx = null;
-let segundaLeitura = false;
 
 function startVideoProcessing() {
   if (!streaming) { console.warn("Inicie sua webcam"); return; }
@@ -109,11 +104,11 @@ function drawResults(ctx, results, color, size) {
     ctx.strokeStyle = color;
     ctx.strokeRect(rect.x*xRatio, rect.y*yRatio, rect.width*xRatio, rect.height*yRatio);
   }
-  if(segundaLeitura){
-    if(results.length > 0 {
-       document.getElementById('btnScreenshot').disabled = false;
-    }  else {
-       document.getElementById('btnScreenshot').disabled = false;
+  if (!segundaLeitura) {
+    if (results.length > 0) {
+      document.getElementById("btnScreenshot").disabled = false;
+    } else {
+      document.getElementById("btnScreenshot").disabled = true;
     }
   }
   segundaLeitura = !segundaLeitura;
@@ -124,20 +119,12 @@ function opencvIsReady() {
 }
 
 (function () {
-  //if (
-    //!"mediaDevices" in navigator ||
-    //!"getUserMedia" in navigator.mediaDevices
-  //) {
-    //alert("A API da câmera não está disponível no seu navegador");
-  //  return;
-  //}
 
   // obter elementos da página
   const video = document.querySelector("#video");
   const btnPlay = document.querySelector("#btnPlay");
   const btnPause = document.querySelector("#btnPause");
   const btnScreenshot = document.querySelector("#btnScreenshot");
-  //const btnChangeCamera = document.querySelector("#btnChangeCamera");
   const screenshotsContainer = document.querySelector("#screenshots");
   const canvas = document.querySelector("#canvas");
   const devicesSelect = document.querySelector("#devicesSelect");
@@ -164,7 +151,7 @@ function opencvIsReady() {
   // fluxo de vídeo atual
   let videoStream;
 
-  // handle events
+  // Vamos aos eventos 
   // play
   btnPlay.addEventListener("click", function () {
     video.play();
@@ -179,7 +166,7 @@ function opencvIsReady() {
     btnPlay.classList.remove("is-hidden");
   });
 
-  // take screenshot
+  // Tira screenshot
   btnScreenshot.addEventListener("click", function () {
     const img = document.createElement("img");
     canvas.width = video.videoWidth;
@@ -188,13 +175,6 @@ function opencvIsReady() {
     img.src = canvas.toDataURL("image/png");
     screenshotsContainer.prepend(img);
   });
-
-  // switch camera
-  //btnChangeCamera.addEventListener("click", function () {
-  //  useFrontCamera = !useFrontCamera;
-
-  //  initializeCamera();
-  //});
 
   // stop video stream
   function stopVideoStream() {
@@ -205,7 +185,7 @@ function opencvIsReady() {
     }
   }
 
-  // initialize
+  // inicializa
   async function initializeCamera() {
     stopVideoStream();
     constraints.video.facingMode = useFrontCamera ? "user" : "environment";
@@ -220,5 +200,4 @@ function opencvIsReady() {
 
   initializeCamera();
 })();
-
 
