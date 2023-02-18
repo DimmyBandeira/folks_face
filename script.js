@@ -133,12 +133,12 @@ function opencvIsReady() {
   const constraints = {
     video: {
       width: {
-        min: 1280,
+        min: 300,
         //ideal: 1920,
         //max: 2560,
       },
       height: {
-        min: 720,
+        min: 225,
         //ideal: 1080,
         //max: 1440,
       },
