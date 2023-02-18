@@ -109,7 +109,7 @@ function drawResults(ctx, results, color, size) {
     ctx.strokeStyle = color;
     ctx.strokeRect(rect.x*xRatio, rect.y*yRatio, rect.width*xRatio, rect.height*yRatio);
   }
-  if(segundaleitura){
+  if(segundaLeitura){
     if(results.length > 0 {
        document.getElementById('btnScreenshot').disabled = false;
     }  else {
