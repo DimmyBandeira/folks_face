@@ -2,6 +2,11 @@ canvas {
     border: 1px solid black;
     width: 30;
     height: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+    background: #f6f5f4;
   }
   .invisible {
     display: none;
@@ -13,26 +18,7 @@ canvas {
     display: block;
     margin: auto;
   }
-  .column {
-    width: 10vw;
-    height: 30vh;
-  }
 
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: sans-serif;
-  background: #f6f5f4;
-}
 .button {
   border: none;
   padding: 20px 40px;
@@ -46,64 +32,5 @@ body {
   transition: all 0.7s;
   overflow: hidden;
   border-radius: 100px;
-}
-
-
-button .first {
-  content: "";
-  position: absolute;
-  right: 100%;
-  top: 0;
-  width: 25%;
-  height: 100%;
-  background: #043c23;
-}
-
-button:hover .first {
-  top: 0;
-  right: 0;
-}
-button .second {
-  content: "";
-  position: absolute;
-  left: 25%;
-  top: -100%;
-  height: 100%;
-  width: 25%;
-  background: #043c23;
-}
-
-button:hover .second {
-  top: 0;
-  left: 50%;
-}
-
-button .third {
-  content: "";
-  position: absolute;
-  left: 50%;
-  height: 100%;
-  top: 100%;
-  width: 25%;
-  background: #043c23;
-}
-
-button:hover .third {
-  top: 0;
-  left: 25%;
-}
-
-button .fourth {
-  content: "";
-  position: absolute;
-  left: 100%;
-  top: 0;
-  height: 100%;
-  width: 25%;
-  background: #043c23;
-}
-
-button:hover .fourth {
-  top: 0;
-  left: 0;
+  align-items: center;
 }
