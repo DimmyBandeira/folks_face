@@ -51,6 +51,7 @@ let canvasInputCtx = null;
 
 let canvasBuffer = null;
 let canvasBufferCtx = null;
+let segundaLeitura = false;
 
 function startVideoProcessing() {
   if (!streaming) { console.warn("Inicie sua webcam"); return; }
@@ -108,6 +109,14 @@ function drawResults(ctx, results, color, size) {
     ctx.strokeStyle = color;
     ctx.strokeRect(rect.x*xRatio, rect.y*yRatio, rect.width*xRatio, rect.height*yRatio);
   }
+  if(segundaleitura){
+    if(results.length > 0 {
+       document.getElementById('btnScreenshot').disabled = false;
+    }  else {
+       document.getElementById('btnScreenshot').disabled = false;
+    }
+  }
+  segundaLeitura = !segundaLeitura;
 }
 function opencvIsReady() {
   console.log('OpenCV.js is ready');
